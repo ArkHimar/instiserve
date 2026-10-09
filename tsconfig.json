@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@instiserve/design-system/*": ["src/design-system/*"],
+      "@instiserve/design-system": ["src/design-system/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "scripts/**/*", "*.config.ts", "*.config.mjs"],
+  "exclude": ["node_modules", "dist", "build", ".storybook"]
+}
