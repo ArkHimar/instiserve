@@ -2,7 +2,7 @@ import "./Footer.css";
 
 /**
  * Footer Component — InstiServe Landing Page
- * Separate reusable footer (also used in WhyInstiserve)
+ * Updated with recommended InstiServe footer content
  */
 export function Footer() {
   const footerLinks = {
@@ -55,15 +55,13 @@ export function Footer() {
               </ul>
             </div>
           </nav>
+        </div>
 
-          <div className="footer__contact">
-            <h4 className="footer__nav-title">Ready to get started?</h4>
-            <div className="footer__address">
-              <p>Bring your institution&apos;s people, processes, and data together in one dependable workspace.</p>
-              <p><a href="https://instiserve.org">Explore InstiServe →</a></p>
-              <p><a href="https://instiserve.org/login">Sign in to your portal →</a></p>
-            </div>
-          </div>
+        <div className="footer__tagline">
+          <h4 className="footer__nav-title">Ready to get started?</h4>
+          <p>Bring your institution&apos;s people, processes, and data together in one dependable workspace.</p>
+          <p><a href="https://instiserve.org">Explore InstiServe →</a></p>
+          <p><a href="https://instiserve.org/login">Sign in to your portal →</a></p>
         </div>
 
         <div className="footer__copyright">

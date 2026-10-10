@@ -22,10 +22,10 @@ export function Hero() {
           </p>
 
           <div className="landing-buttons hero__actions">
-            <Button variant="primary" size="regular">
+            <Button variant="primary" size="regular" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>
               See how it works
             </Button>
-            <Button variant="secondary" size="regular">
+            <Button variant="secondary" size="regular" onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}>
               Book a demo
             </Button>
           </div>
