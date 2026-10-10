@@ -1,0 +1,143 @@
+/**
+ * Alert Styles — matches Figma `InstiServe/Alert` variants
+ * Tones: Info | Success | Warning | Error
+ * Consumes design tokens only
+ */
+
+.ui-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-panel);
+  border: 1px solid transparent;
+  background-color: var(--color-surface-raised);
+  animation: ui-alert-slide-in var(--duration-normal) var(--ease-out);
+}
+
+@keyframes ui-alert-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ui-alert__icon {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.ui-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-alert__title {
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+  margin: 0 0 var(--space-1);
+}
+
+.ui-alert__description {
+  font-size: var(--text-helper);
+  line-height: var(--leading-normal);
+  color: inherit;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.ui-alert__action {
+  margin-top: var(--space-3);
+}
+
+.ui-alert__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-field);
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  margin-top: -2px;
+  margin-right: -4px;
+}
+
+.ui-alert__dismiss:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.ui-alert__dismiss:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+  border-radius: var(--radius-field);
+}
+
+/* ==========================================================================
+   Tones — using surface recipes from Figma
+   ========================================================================== */
+
+/* Info */
+.ui-alert--info {
+  background-color: var(--color-info-bg); /* #EFF6FF */
+  border-color: var(--color-info-border); /* #BFDBFE */
+  color: var(--color-info-fg); /* #1D4ED8 */
+}
+
+/* Success */
+.ui-alert--success {
+  background-color: var(--color-success-bg); /* #ECFDF3 */
+  border-color: var(--color-success-border); /* #ABEFC6 */
+  color: var(--color-success-fg); /* #067647 */
+}
+
+/* Warning */
+.ui-alert--warning {
+  background-color: var(--color-warning-bg); /* #FFFAEB */
+  border-color: var(--color-warning-border); /* #FEDF89 */
+  color: var(--color-warning-fg); /* #93370D */
+}
+
+/* Error */
+.ui-alert--error {
+  background-color: var(--color-error-bg); /* #FEF3F2 */
+  border-color: var(--color-error-border); /* #FECDCA */
+  color: var(--color-error-fg); /* #B42318 */
+}
+
+/* ==========================================================================
+   Interactive Dismiss Animation
+   ========================================================================== */
+
+@keyframes ui-alert-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.ui-alert--dismissing {
+  animation: ui-alert-slide-out var(--duration-fast) var(--ease-out) forwards;
+}

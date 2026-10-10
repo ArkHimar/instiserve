@@ -27,15 +27,13 @@
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
   text-decoration: none;
-  color: var(--color-text-primary);
 }
 
-.navbar__logo-text {
-  font-size: var(--text-control-label); /* 14px */
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: -0.02em;
+.navbar__logo-img {
+  width: 182px;
+  height: 48px;
+  object-fit: contain;
 }
 
 .navbar__menu {

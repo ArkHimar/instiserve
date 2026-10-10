@@ -1,0 +1,278 @@
+/**
+ * TextField Styles — matches Figma `InstiServe/Input` variants
+ * States: Default | Filled | Focus | Error | Disabled | ReadOnly
+ * Consumes design tokens only
+ */
+
+/* ==========================================================================
+   Field Wrapper
+   ========================================================================== */
+
+.ui-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.ui-field--full {
+  width: 100%;
+}
+
+.ui-field__label {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ui-field__required {
+  color: var(--color-error-fg);
+  margin-left: var(--space-1);
+}
+
+.ui-field__helper {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.ui-field__error {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-error-fg);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.ui-field__error::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Input Wrapper
+   ========================================================================== */
+
+.ui-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+
+.ui-input-wrapper:hover:not(.ui-input--disabled, .ui-input--readonly, .ui-input--error) {
+  border-color: var(--color-brand-supporting-blue);
+}
+
+.ui-input-wrapper:has(.ui-input:focus) {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* ==========================================================================
+   Base Input
+   ========================================================================== */
+
+.ui-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-raised);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.ui-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.ui-input:disabled,
+.ui-input[readonly] {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Input Icons
+   ========================================================================== */
+
+.ui-input__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  padding: 0 var(--space-2);
+}
+
+.ui-input__icon--left {
+  margin-left: var(--space-2);
+}
+
+.ui-input__icon--right {
+  margin-right: var(--space-2);
+}
+
+.ui-input:not([type="password"]) + .ui-input__icon--right {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.ui-input--regular {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  min-height: 44px;
+}
+
+.ui-input--compact {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-helper);
+  min-height: 32px;
+}
+
+/* ==========================================================================
+   States
+   ========================================================================== */
+
+/* Filled - has value */
+.ui-input-wrapper:has(.ui-input:not(:placeholder-shown)) {
+  background-color: var(--color-surface-canvas);
+}
+
+/* Focus */
+.ui-input-wrapper:has(.ui-input:focus) {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* Error */
+.ui-input-wrapper.ui-input--error {
+  border-color: var(--color-error-fg);
+  background-color: var(--color-error-bg);
+}
+
+.ui-input-wrapper.ui-input--error:hover {
+  border-color: var(--color-error-fg);
+}
+
+.ui-input-wrapper.ui-input--error:has(.ui-input:focus) {
+  border-color: var(--color-error-fg);
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.15);
+}
+
+/* Disabled */
+.ui-input-wrapper.ui-input--disabled {
+  background-color: var(--color-surface-disabled);
+  border-color: var(--color-border-default);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ui-input-wrapper.ui-input--disabled .ui-input {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ReadOnly */
+.ui-input-wrapper.ui-input--readonly {
+  background-color: var(--color-surface-canvas);
+  border-color: var(--color-border-default);
+}
+
+.ui-input-wrapper.ui-input--readonly .ui-input {
+  color: var(--color-text-primary);
+  cursor: default;
+}
+
+/* ==========================================================================
+   Textarea
+   ========================================================================== */
+
+.ui-input--textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: var(--leading-normal);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  font-family: var(--font-family);
+}
+
+/* ==========================================================================
+   Select
+   ========================================================================== */
+
+.ui-input--select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5l3 3 3-3' stroke='%23686978' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.ui-input--select:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5l3 3 3-3' stroke='%239899A5' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Password Toggle Button (for external use)
+   ========================================================================== */
+
+.ui-input__toggle {
+  position: absolute;
+  right: var(--space-3);
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.ui-input__toggle:hover {
+  color: var(--color-brand-primary);
+}
+
+.ui-input__toggle:focus-visible {
+  outline: none;
+  border-radius: var(--radius-field);
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes ui-input-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.ui-input-wrapper.ui-input--error .ui-input {
+  animation: ui-input-shake var(--duration-fast) var(--ease-out);
+}

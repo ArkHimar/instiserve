@@ -1,0 +1,153 @@
+/**
+ * Badge Styles — matches Figma `InstiServe/Badge` variants
+ * Tones: Neutral | Info | Success | Warning | Error
+ * Sizes: Regular | Compact
+ * Consumes design tokens only
+ */
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.ui-badge--interactive {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.ui-badge--interactive:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.ui-badge--regular {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  min-height: 24px;
+}
+
+.ui-badge--compact {
+  padding: var(--space-1) var(--space-2);
+  font-size: 11px;
+  line-height: 1.4;
+  min-height: 20px;
+}
+
+/* ==========================================================================
+   Tones — using design tokens from tokens.css
+   ========================================================================== */
+
+/* Neutral */
+.ui-badge--neutral {
+  background-color: var(--color-surface-disabled); /* #F1F2F4 */
+  color: var(--color-text-muted); /* #686978 */
+  border: 1px solid var(--color-border-default); /* #E5E5E9 */
+}
+
+/* Info */
+.ui-badge--info {
+  background-color: var(--color-info-bg); /* #EFF6FF */
+  color: var(--color-info-fg); /* #0066CC */
+  border: 1px solid var(--color-info-border); /* #BFDBFE */
+}
+
+/* Success */
+.ui-badge--success {
+  background-color: var(--color-success-bg); /* #ECFDF3 */
+  color: var(--color-success-fg); /* #067647 */
+  border: 1px solid var(--color-success-border); /* #ABEFC6 */
+}
+
+/* Warning */
+.ui-badge--warning {
+  background-color: var(--color-warning-bg); /* #FFFAEB */
+  color: var(--color-warning-fg); /* #93370D */
+  border: 1px solid var(--color-warning-border); /* #FEDF89 */
+}
+
+/* Error */
+.ui-badge--error {
+  background-color: var(--color-error-bg); /* #FEF3F2 */
+  color: var(--color-error-fg); /* #B42318 */
+  border: 1px solid var(--color-error-border); /* #FECDCA */
+}
+
+/* ==========================================================================
+   Interactive States
+   ========================================================================== */
+
+.ui-badge--interactive:hover {
+  opacity: 0.9;
+}
+
+.ui-badge--interactive:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Interactive Focus
+   ========================================================================== */
+
+.ui-badge--interactive:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes ui-badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.ui-badge--pulse {
+  animation: ui-badge-pulse 1.5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Dot Indicator (for status lists)
+   ========================================================================== */
+
+.ui-badge--dot {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ui-badge--dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.ui-badge--dot.ui-badge--neutral::before { background-color: var(--color-text-muted); }
+.ui-badge--dot.ui-badge--info::before { background-color: var(--color-info-fg); }
+.ui-badge--dot.ui-badge--success::before { background-color: var(--color-success-fg); }
+.ui-badge--dot.ui-badge--warning::before { background-color: var(--color-warning-fg); }
+.ui-badge--dot.ui-badge--error::before { background-color: var(--color-error-fg); }

@@ -1,0 +1,200 @@
+/**
+ * Switch Styles — matches Figma `InstiServe/Toggle` variants
+ * States: On | Off | Disabled
+ * Sizes: Regular | Compact
+ * Consumes design tokens only
+ */
+
+.ui-switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.ui-switch__label {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ui-switch__container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-switch__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ui-switch__input:focus-visible + .ui-switch__track {
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+.ui-switch__input:disabled + .ui-switch__track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-switch__input:checked + .ui-switch__track {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+
+.ui-switch__input:checked + .ui-switch__track .ui-switch__thumb {
+  transform: translateX(100%);
+  background-color: var(--color-text-on-primary);
+}
+
+/* ==========================================================================
+   Track
+   ========================================================================== */
+
+.ui-switch__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-neutral-300);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-pill);
+  transition: all var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.ui-switch__track:hover {
+  background-color: var(--color-neutral-400);
+}
+
+.ui-switch__track:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.ui-switch--regular .ui-switch__track {
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+}
+
+.ui-switch--compact .ui-switch__track {
+  width: 36px;
+  height: 20px;
+  padding: 1px;
+}
+
+/* ==========================================================================
+   Thumb
+   ========================================================================== */
+
+.ui-switch__thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+  box-shadow: var(--shadow-flat);
+  transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+
+.ui-switch--regular .ui-switch__thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.ui-switch--compact .ui-switch__thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-switch__input:checked + .ui-switch__track .ui-switch__thumb {
+  transform: translateX(calc(100% - 2px)) translateY(-50%);
+  border-color: var(--color-brand-primary);
+}
+
+/* ==========================================================================
+   Disabled State
+   ========================================================================== */
+
+.ui-switch__input:disabled + .ui-switch__track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-switch__input:disabled + .ui-switch__track .ui-switch__thumb {
+  background-color: var(--color-surface-disabled);
+}
+
+/* ==========================================================================
+   Focus Visible
+   ========================================================================== */
+
+.ui-switch__input:focus-visible + .ui-switch__track {
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Error State (for form validation)
+   ========================================================================== */
+
+.ui-switch__input[aria-invalid="true"] + .ui-switch__track {
+  border-color: var(--color-error-fg);
+  background-color: var(--color-error-bg);
+}
+
+.ui-switch__input[aria-invalid="true"]:focus-visible + .ui-switch__track {
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring),
+    0 0 0 3px var(--color-error-fg);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes ui-switch-bounce {
+  0% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(-2px) scale(1.1); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+.ui-switch__input:checked + .ui-switch__track .ui-switch__thumb {
+  animation: ui-switch-bounce var(--duration-fast) var(--ease-out);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .ui-switch--regular .ui-switch__track {
+    width: 40px;
+    height: 22px;
+  }
+
+  .ui-switch--regular .ui-switch__thumb {
+    width: 18px;
+    height: 18px;
+  }
+}

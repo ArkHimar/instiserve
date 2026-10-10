@@ -16,12 +16,13 @@ export function Footer() {
       <div className="landing-container">
         <div className="footer__main">
           <div className="footer__brand">
-            <div className="footer__logo" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="8" fill="var(--color-brand-primary)" />
-                <path d="M10 20L16 26L30 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
+            <img 
+              src="/InstiServe-logo.png" 
+              alt="InstiServe" 
+              className="footer__logo-img"
+              width="182"
+              height="48"
+            />
             <p className="footer__mission">
               Supporting individuals, organisations, and communities through meaningful insight, collaboration, and positive change.
             </p>

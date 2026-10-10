@@ -119,7 +119,10 @@
   max-width: 320px;
 }
 
-.why-instiserve__logo {
+.why-instiserve__logo-img {
+  width: 182px;
+  height: 48px;
+  object-fit: contain;
   margin-bottom: var(--space-4);
 }
 

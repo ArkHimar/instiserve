@@ -1,0 +1,279 @@
+/**
+ * EmptyState Styles — matches Figma `InstiServe/EmptyState` variants
+ * Kinds: NoData | NoResults | NoAccess | Error | Loading
+ * Consumes design tokens only
+ */
+
+.ui-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  font-family: var(--font-family);
+}
+
+.ui-empty-state--full {
+  width: 100%;
+}
+
+.ui-empty-state--centered {
+  display: flex;
+  min-height: 300px;
+}
+
+.ui-empty-state__illustration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  color: var(--color-neutral-400);
+  width: 100%;
+  max-width: 80px;
+  height: 80px;
+}
+
+.ui-empty-state__title {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-3);
+  line-height: var(--leading-tight);
+}
+
+.ui-empty-state__description {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto var(--space-6);
+}
+
+.ui-empty-state__action {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Variants
+   ========================================================================== */
+
+/* NoData - neutral gray illustration */
+.ui-empty-state__illustration svg {
+  color: var(--color-neutral-400);
+}
+
+/* NoResults - checkmark illustration */
+.ui-empty-state[data-kind="noResults"] .ui-empty-state__illustration {
+  color: var(--color-brand-supporting-blue);
+}
+
+/* NoAccess - lock/cross illustration */
+.ui-empty-state[data-kind="noAccess"] .ui-empty-state__illustration {
+  color: var(--color-neutral-400);
+}
+
+/* Error - red cross illustration */
+.ui-empty-state[data-kind="error"] .ui-empty-state__illustration {
+  color: var(--color-error-fg);
+}
+
+/* Loading - animated spinner */
+.ui-empty-state[data-kind="loading"] .ui-empty-state__illustration {
+  color: var(--color-brand-primary);
+}
+
+.ui-empty-state[data-kind="loading"] circle {
+  animation: ui-empty-state-spin 1.5s linear infinite;
+}
+
+@keyframes ui-empty-state-spin {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+
+/* ==========================================================================
+   Title & Description
+   ========================================================================== */
+
+.ui-empty-state__title {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-3);
+  line-height: var(--leading-tight);
+}
+
+.ui-empty-state__description {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto var(--space-6);
+}
+
+/* ==========================================================================
+   Action Buttons
+   ========================================================================== */
+
+.ui-empty-state__action {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.ui-empty-state--sm {
+  padding: var(--space-6) var(--space-4);
+}
+
+.ui-empty-state--sm .ui-empty-state__illustration {
+  max-width: 60px;
+  height: 60px;
+}
+
+.ui-empty-state--sm .ui-empty-state__title {
+  font-size: var(--text-control-label);
+}
+
+.ui-empty-state--sm .ui-empty-state__description {
+  font-size: var(--text-helper);
+}
+
+/* ==========================================================================
+   Inline Variant (for cards, tables)
+   ========================================================================== */
+
+.ui-empty-state--inline {
+  padding: var(--space-6) var(--space-4);
+  min-height: 200px;
+}
+
+.ui-empty-state--inline .ui-empty-state__illustration {
+  max-width: 60px;
+  height: 60px;
+}
+
+.ui-empty-state--inline .ui-empty-state__title {
+  font-size: var(--text-control-label);
+}
+
+.ui-empty-state--inline .ui-empty-state__description {
+  font-size: var(--text-helper);
+}
+
+/* ==========================================================================
+   Centered Container
+   ========================================================================== */
+
+.ui-empty-state--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+/* ==========================================================================
+   Full Width / Card
+   ========================================================================== */
+
+.ui-empty-state--full {
+  width: 100%;
+}
+
+.ui-empty-state--card {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-8);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .ui-empty-state {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .ui-empty-state__title {
+    font-size: var(--text-control-label);
+  }
+
+  .ui-empty-state__description {
+    font-size: var(--text-helper);
+  }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes ui-empty-state-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ui-empty-state {
+  animation: ui-empty-state-fade-in var(--duration-normal) var(--ease-out);
+}
+
+@keyframes ui-empty-state-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ui-empty-state--pulse .ui-empty-state__illustration {
+  animation: ui-empty-state-pulse 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Illustrations (inline SVG colors via CSS)
+   ========================================================================== */
+
+.ui-empty-state__illustration svg {
+  display: block;
+}
+
+/* Default illustration colors - overridden by data-kind */
+.ui-empty-state__illustration {
+  color: var(--color-neutral-400);
+}
+
+/* ==========================================================================
+   Loading Spinner Specific
+   ========================================================================== */
+
+.ui-empty-state[data-kind="loading"] .ui-empty-state__illustration circle {
+  transform-origin: center;
+  animation: ui-empty-state-spin 1.5s linear infinite;
+}
+
+@keyframes ui-empty-state-spin {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}

@@ -1,0 +1,207 @@
+/**
+ * Select Styles — matches Figma `InstiServe/Dropdown` variants
+ * States: Default | Open | Error | Disabled | Focus | Filled
+ * Consumes design tokens only
+ */
+
+.ui-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+
+.ui-select-wrapper:hover:not(.ui-select--disabled, .ui-select--error) {
+  border-color: var(--color-brand-supporting-blue);
+}
+
+.ui-select-wrapper:has(.ui-select:focus) {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* ==========================================================================
+   Base Select
+   ========================================================================== */
+
+.ui-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-raised);
+  appearance: none;
+  transition: color var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.ui-select::placeholder {
+  color: var(--color-text-muted);
+}
+
+.ui-select:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.ui-select--regular {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  min-height: 44px;
+}
+
+.ui-select--compact {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-helper);
+  min-height: 32px;
+}
+
+/* ==========================================================================
+   Dropdown Arrow
+   ========================================================================== */
+
+.ui-select-wrapper {
+  position: relative;
+}
+
+.ui-select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-text-muted);
+  pointer-events: none;
+  transition: border-top-color var(--duration-fast) var(--ease-out);
+}
+
+.ui-select-wrapper:hover:not(.ui-select--disabled)::after {
+  border-top-color: var(--color-brand-primary);
+}
+
+.ui-select-wrapper.ui-select--disabled::after {
+  border-top-color: var(--color-neutral-400);
+}
+
+/* ==========================================================================
+   States
+   ========================================================================== */
+
+/* Filled - has value */
+.ui-select-wrapper:has(.ui-select:not([value=""]):not([value=""])) {
+  background-color: var(--color-surface-canvas);
+}
+
+/* Focus */
+.ui-select-wrapper:has(.ui-select:focus) {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.ui-select:focus {
+  outline: none;
+}
+
+/* Error */
+.ui-select-wrapper.ui-select--error {
+  border-color: var(--color-error-fg);
+  background-color: var(--color-error-bg);
+}
+
+.ui-select-wrapper.ui-select--error:hover {
+  border-color: var(--color-error-fg);
+}
+
+.ui-select-wrapper.ui-select--error:has(.ui-select:focus) {
+  border-color: var(--color-error-fg);
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.15);
+}
+
+/* Disabled */
+.ui-select-wrapper.ui-select--disabled {
+  background-color: var(--color-surface-disabled);
+  border-color: var(--color-border-default);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ui-select-wrapper.ui-select--disabled .ui-select {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Multiple Select
+   ========================================================================== */
+
+.ui-select[multiple] {
+  min-height: 100px;
+  padding-right: var(--space-4); /* No arrow for multiple */
+}
+
+.ui-select-wrapper:has(.ui-select[multiple])::after {
+  display: none;
+}
+
+/* ==========================================================================
+   Optgroup Styling
+   ========================================================================== */
+
+.ui-select optgroup {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ui-select option {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-body);
+}
+
+.ui-select option:disabled {
+  color: var(--color-neutral-400);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes ui-select-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.ui-select-wrapper.ui-select--error .ui-select {
+  animation: ui-select-shake var(--duration-fast) var(--ease-out);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .ui-select--regular {
+    padding: var(--space-3) var(--space-3);
+    font-size: var(--text-helper);
+    min-height: 40px;
+  }
+}

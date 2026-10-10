@@ -63,6 +63,11 @@ export const tokens = {
     flat: "0 0 0 3px rgba(184, 222, 255, 0.4)",
     raised: "0 6px 16px rgba(0, 0, 0, 0.08)",
   },
+  gradient: {
+    brand: "linear-gradient(135deg, rgba(0, 136, 255, 0.7) 0%, rgba(118, 197, 253, 0.7) 24.67%, rgba(107, 198, 255, 0.8) 72.22%, rgba(26, 131, 255, 0.8) 100%)",
+    footer: "radial-gradient(ellipse at 20% 100%, rgba(0, 128, 239, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(0, 203, 239, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 50% 120%, rgba(0, 136, 255, 0.08) 0%, transparent 40%)",
+    buttonPrimary: "linear-gradient(135deg, #0088FF 0%, #0066CC 100%)",
+  },
   motion: {
     fast: "120ms",
     normal: "200ms",
@@ -96,6 +101,7 @@ export type ColorTokens = typeof tokens.color;
 export type SpacingTokens = typeof tokens.spacing;
 export type RadiusTokens = typeof tokens.radius;
 export type ShadowTokens = typeof tokens.shadow;
+export type GradientTokens = typeof tokens.gradient;
 export type MotionTokens = typeof tokens.motion;
 export type ZIndexTokens = typeof tokens.zIndex;
 export type TypographyTokens = typeof tokens.typography;

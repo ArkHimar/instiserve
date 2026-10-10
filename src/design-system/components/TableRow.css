@@ -1,0 +1,302 @@
+/**
+ * TableRow Styles — matches Figma `InstiServe/TableRow` variants
+ * States: Default | Selected | Hover
+ * Consumes design tokens only
+ */
+
+.ui-table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  background-color: var(--color-surface-raised);
+}
+
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-helper);
+  font-family: var(--font-family);
+}
+
+.ui-table__th {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  background-color: var(--color-surface-canvas);
+  border-bottom: 1px solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.ui-table__td {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-helper);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-default);
+  vertical-align: middle;
+}
+
+.ui-table__td:last-child {
+  border-bottom: none;
+}
+
+.ui-table tbody tr:last-child .ui-table__td {
+  border-bottom: none;
+}
+
+.ui-table__empty {
+  text-align: center;
+  padding: var(--space-10);
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+}
+
+.ui-table tbody tr:hover .ui-table__td {
+  background-color: var(--color-surface-canvas);
+}
+
+/* ==========================================================================
+   TableRow (standalone)
+   ========================================================================== */
+
+.ui-table-row {
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.ui-table-row--selected .ui-table-row__cell {
+  background-color: var(--color-surface-selected);
+}
+
+.ui-table-row:hover .ui-table-row__cell {
+  background-color: var(--color-surface-canvas);
+}
+
+.ui-table-row__cell {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-helper);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-default);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ui-table-row__cell:last-child {
+  border-bottom: none;
+}
+
+.ui-table-row__cell--checkbox {
+  width: 48px;
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.ui-table-row__cell--name {
+  min-width: 200px;
+}
+
+.ui-table-row__cell--email {
+  min-width: 200px;
+}
+
+.ui-table-row__cell--identifier {
+  min-width: 120px;
+}
+
+.ui-table-row__cell--role {
+  min-width: 140px;
+}
+
+.ui-table-row__cell--department {
+  min-width: 140px;
+}
+
+.ui-table-row__cell--actions {
+  width: 120px;
+  text-align: right;
+}
+
+/* ==========================================================================
+   Name Cell
+   ========================================================================== */
+
+.ui-table-row__name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ui-table-row__name {
+  font-size: var(--text-helper);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.ui-table-row__label {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Email Link
+   ========================================================================== */
+
+.ui-table-row__email {
+  font-size: var(--text-helper);
+  color: var(--color-brand-supporting-blue);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.ui-table-row__email:hover {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Identifier, Role, Department
+   ========================================================================== */
+
+.ui-table-row__identifier,
+.ui-table-row__role,
+.ui-table-row__department {
+  font-size: var(--text-helper);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Selected State
+   ========================================================================== */
+
+.ui-table-row--selected .ui-table-row__cell {
+  background-color: var(--color-surface-selected);
+}
+
+.ui-table-row--selected .ui-table-row__email {
+  color: var(--color-brand-primary);
+}
+
+/* ==========================================================================
+   Hover State
+   ========================================================================== */
+
+.ui-table-row:hover .ui-table-row__cell {
+  background-color: var(--color-surface-canvas);
+}
+
+/* ==========================================================================
+   Expansion Row
+   ========================================================================== */
+
+.ui-table-row__expansion {
+  background-color: var(--color-surface-canvas);
+}
+
+.ui-table-row__expansion-cell {
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.ui-table-row__expansion-content {
+  animation: ui-table-expand var(--duration-normal) var(--ease-out);
+}
+
+@keyframes ui-table-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Actions Cell
+   ========================================================================== */
+
+.ui-table-row__cell--actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .ui-table-wrapper {
+    font-size: var(--text-caption);
+  }
+
+  .ui-table-row__cell {
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .ui-table__th,
+  .ui-table__td {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-caption);
+  }
+
+  .ui-table-row__cell {
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+/* ==========================================================================
+   Sortable Column (if needed)
+   ========================================================================== */
+
+.ui-table__th--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-table__th--sortable:hover {
+  background-color: var(--color-surface-canvas);
+}
+
+.ui-table__th--sortable:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+.ui-table__th--sorted-asc .ui-table__sort-icon::after {
+  content: "↑";
+}
+
+.ui-table__th--sorted-desc .ui-table__sort-icon::after {
+  content: "↓";
+}
+
+.ui-table__sort-icon {
+  display: inline-flex;
+  margin-left: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Sticky Header (optional)
+   ========================================================================== */
+
+.ui-table--sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-dropdown);
+  background-color: var(--color-surface-canvas);
+  box-shadow: var(--shadow-flat);
+}

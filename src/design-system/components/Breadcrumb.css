@@ -1,0 +1,175 @@
+/**
+ * Breadcrumb Styles — matches Figma `InstiServe/Breadcrumb` variants
+ * States: Default | Hover | Current | Disabled
+ * Consumes design tokens only
+ */
+
+.ui-breadcrumb {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family);
+}
+
+.ui-breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-2);
+}
+
+.ui-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-helper);
+  color: var(--color-text-muted);
+}
+
+.ui-breadcrumb__separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.ui-breadcrumb__separator svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-breadcrumb__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-helper);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-field);
+  transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.ui-breadcrumb__link:hover:not(.ui-breadcrumb__link--disabled) {
+  color: var(--color-brand-primary);
+  background-color: var(--color-surface-selected);
+  border-radius: var(--radius-field);
+}
+
+.ui-breadcrumb__link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+  border-radius: var(--radius-field);
+}
+
+.ui-breadcrumb__link--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ui-breadcrumb__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.ui-breadcrumb__current {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-helper);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.ui-breadcrumb__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.ui-breadcrumb__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.ui-breadcrumb__ellipsis-text {
+  font-size: var(--text-helper);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .ui-breadcrumb__list {
+    gap: var(--space-1);
+  }
+
+  .ui-breadcrumb__item {
+    font-size: var(--text-caption);
+  }
+}
+
+/* ==========================================================================
+   RTL Support
+   ========================================================================== */
+
+[dir="rtl"] .ui-breadcrumb__list {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ui-breadcrumb__separator {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Compact Variant (for tight spaces)
+   ========================================================================== */
+
+.ui-breadcrumb--compact .ui-breadcrumb__link {
+  padding: var(--space-1);
+  font-size: var(--text-caption);
+}
+
+.ui-breadcrumb--compact .ui-breadcrumb__separator {
+  display: none;
+}
+
+.ui-breadcrumb--compact .ui-breadcrumb__separator:first-of-type {
+  display: inline-flex;
+}
+
+/* ==========================================================================
+   Full Width / Overflow Handling
+   ========================================================================== */
+
+.ui-breadcrumb--scrollable {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-300) transparent;
+  padding-bottom: var(--space-2);
+  margin-bottom: calc(-1 * var(--space-2));
+}
+
+.ui-breadcrumb--scrollable::-webkit-scrollbar {
+  height: 4px;
+}
+
+.ui-breadcrumb--scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-300);
+  border-radius: 2px;
+}

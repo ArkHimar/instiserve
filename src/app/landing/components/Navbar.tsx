@@ -18,11 +18,13 @@ export function Navbar() {
     <nav className="navbar" role="navigation" aria-label="Main navigation">
       <div className="navbar__container landing-container">
         <a href="/" className="navbar__logo" aria-label="InstiServe Home">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="8" fill="var(--color-brand-primary)" />
-            <path d="M8 16L14 22L24 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span className="navbar__logo-text">InstiServe</span>
+          <img 
+            src="/InstiServe-logo.png" 
+            alt="InstiServe" 
+            className="navbar__logo-img"
+            width="182"
+            height="48"
+          />
         </a>
 
         <div className="navbar__menu" role="menubar">

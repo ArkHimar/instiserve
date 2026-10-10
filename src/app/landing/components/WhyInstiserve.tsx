@@ -73,16 +73,17 @@ export function WhyInstiserve() {
         <footer className="why-instiserve__footer">
           <div className="why-instiserve__footer-main">
             <div className="why-instiserve__brand">
-              <div className="why-instiserve__logo" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <rect width="40" height="40" rx="8" fill="var(--color-brand-primary)" />
-                  <path d="M10 20L16 26L30 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <p className="why-instiserve__mission">
-                Supporting individuals, organisations, and communities through meaningful insight, collaboration, and positive change.
-              </p>
-            </div>
+            <img 
+              src="/InstiServe-logo.png" 
+              alt="InstiServe" 
+              className="why-instiserve__logo-img"
+              width="182"
+              height="48"
+            />
+            <p className="why-instiserve__mission">
+              Supporting individuals, organisations, and communities through meaningful insight, collaboration, and positive change.
+            </p>
+          </div>
 
             <nav className="why-instiserve__nav" aria-label="Footer navigation">
               <div className="why-instiserve__nav-column">
