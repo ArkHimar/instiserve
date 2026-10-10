@@ -1,0 +1,99 @@
+/**
+ * Core Features Styles
+ * Consumes design tokens only
+ */
+
+.core-features {
+  background-color: var(--color-surface-canvas);
+}
+
+.core-features__header {
+  max-width: 720px;
+  margin: 0 auto var(--space-10);
+}
+
+.core-features__headline {
+  margin-bottom: var(--space-4);
+}
+
+.core-features__subheadline {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+}
+
+.core-features__categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.core-features__category {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .core-features__category {
+    padding: var(--space-5);
+  }
+}
+
+.core-features__category-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.core-features__icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.core-features__category-title {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.core-features__features {
+  gap: var(--space-4);
+}
+
+.core-features__feature {
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-4);
+  transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.core-features__feature:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
+.core-features__feature-name {
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.core-features__feature-description {
+  font-size: var(--text-helper);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .core-features__features {
+    grid-template-columns: 1fr;
+  }
+}

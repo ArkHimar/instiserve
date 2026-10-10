@@ -1,0 +1,460 @@
+/**
+ * Project Tours / Dashboard Preview Styles
+ * Consumes design tokens only
+ */
+
+.project-tours {
+  background-color: var(--color-surface-canvas);
+}
+
+.project-tours__header {
+  max-width: 720px;
+  margin: 0 auto var(--space-10);
+}
+
+.project-tours__label {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.project-tours__headline {
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   Role Cards
+   ========================================================================== */
+
+.project-tours__roles {
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .project-tours__roles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-tours__roles {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-tours__role-card {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+  text-align: center;
+  transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.project-tours__role-card:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
+.project-tours__role-image {
+  margin-bottom: var(--space-4);
+}
+
+.project-tours__role-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: var(--color-surface-selected);
+  margin: 0 auto;
+}
+
+.project-tours__role-placeholder--admin {
+  background-color: #E5F3FF;
+}
+
+.project-tours__role-placeholder--teacher {
+  background-color: #ECFDF3;
+}
+
+.project-tours__role-placeholder--students {
+  background-color: #FFFAEB;
+}
+
+.project-tours__role-placeholder--parents {
+  background-color: #FEF3F2;
+}
+
+.project-tours__role-name {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.project-tours__role-description {
+  font-size: var(--text-helper);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Dashboard Preview
+   ========================================================================== */
+
+.project-tours__divider {
+  margin: var(--space-10) 0;
+}
+
+.project-tours__dashboard-preview {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-raised);
+}
+
+@media (max-width: 768px) {
+  .project-tours__dashboard-preview {
+    padding: var(--space-5);
+  }
+}
+
+.project-tours__dashboard-title {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-6);
+}
+
+.project-tours__dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.project-tours__dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.project-tours__user-avatar {
+  flex-shrink: 0;
+}
+
+.project-tours__user-greeting {
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.project-tours__user-role {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  margin: var(--space-1) 0 0;
+  text-transform: capitalize;
+}
+
+.project-tours__dashboard-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.project-tours__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.project-tours__search svg {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--color-text-muted);
+  width: 18px;
+  height: 18px;
+}
+
+.project-tours__search input {
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
+  font-size: var(--text-control-label);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-pill);
+  width: 240px;
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.project-tours__search input:focus {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.project-tours__term-badge {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  background-color: var(--color-surface-selected);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+}
+
+/* ==========================================================================
+   Stats Cards
+   ========================================================================== */
+
+.project-tours__stats {
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .project-tours__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.project-tours__stat-card {
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-4);
+  text-align: center;
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.project-tours__stat-card:hover {
+  box-shadow: var(--shadow-flat);
+}
+
+.project-tours__stat-icon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: var(--space-2);
+}
+
+.project-tours__stat-value {
+  font-size: 24px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.project-tours__stat-label {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Dashboard Content
+   ========================================================================== */
+
+.project-tours__dashboard-content {
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .project-tours__dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-tours__section-title {
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.project-tours__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.project-tours__view-all {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.project-tours__view-all:hover {
+  color: var(--color-brand-accent);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Attendance Chart
+   ========================================================================== */
+
+.project-tours__attendance {
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-5);
+  min-height: 300px;
+}
+
+.project-tours__attendance-chart {
+  height: 180px;
+  margin-bottom: var(--space-4);
+}
+
+.project-tours__attendance-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.project-tours__attendance-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.project-tours__attendance-count {
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.project-tours__attendance-period {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Recent Activity
+   ========================================================================== */
+
+.project-tours__recent-activity {
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-5);
+}
+
+.project-tours__activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.project-tours__activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.project-tours__activity-item:hover {
+  box-shadow: var(--shadow-flat);
+}
+
+.project-tours__activity-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.project-tours__activity-action {
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.project-tours__activity-user {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+}
+
+.project-tours__activity-time {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Reminders
+   ========================================================================== */
+
+.project-tours__reminders {
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-5);
+}
+
+.project-tours__reminders-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.project-tours__reminder-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+}
+
+.project-tours__reminder-item svg {
+  flex-shrink: 0;
+  color: var(--color-brand-primary);
+}
+
+.project-tours__reminder-item span {
+  font-size: var(--text-helper);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+}
+
+@media (max-width: 768px) {
+  .project-tours__dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-tours__search input {
+    width: 100%;
+  }
+
+  .project-tours__dashboard-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

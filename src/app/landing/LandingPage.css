@@ -1,0 +1,208 @@
+/**
+ * InstiServe Landing Page Styles
+ * Consumes tokens from @instiserve/design-system/tokens.css
+ * No raw values — only CSS custom properties
+ */
+
+.landing-page {
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-canvas);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.landing-page main {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Section Base Styles
+   ========================================================================== */
+
+.landing-section {
+  padding: var(--space-10) var(--space-4); /* 40px vertical, 16px horizontal */
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .landing-section {
+    padding: var(--space-8) var(--space-3); /* 32px vertical, 12px horizontal */
+  }
+}
+
+/* ==========================================================================
+   Container Utilities
+   ========================================================================== */
+
+.landing-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 0 var(--space-3);
+  }
+}
+
+/* ==========================================================================
+   Grid Utilities
+   ========================================================================== */
+
+.landing-grid {
+  display: grid;
+  gap: var(--space-6); /* 24px */
+}
+
+.landing-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.landing-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.landing-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .landing-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .landing-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-grid--2,
+  .landing-grid--3,
+  .landing-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Flex Utilities
+   ========================================================================== */
+
+.landing-flex {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.landing-flex--center {
+  justify-content: center;
+}
+
+.landing-flex--between {
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Text Utilities
+   ========================================================================== */
+
+.landing-text-center {
+  text-align: center;
+}
+
+.landing-heading {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+}
+
+.landing-heading--page-title {
+  font-size: var(--text-page-title); /* 20px */
+}
+
+.landing-heading--section-title {
+  font-size: var(--text-section-title); /* 18px */
+}
+
+.landing-heading--large {
+  font-size: 40px;
+  line-height: 1.25;
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+  .landing-heading--large {
+    font-size: 32px;
+  }
+}
+
+.landing-body {
+  font-size: var(--text-body); /* 15px */
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+}
+
+.landing-body--muted {
+  color: var(--color-text-muted);
+}
+
+.landing-caption {
+  font-size: var(--text-caption); /* 12px */
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Button Integration
+   ========================================================================== */
+
+.landing-buttons {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+/* ==========================================================================
+   Divider
+   ========================================================================== */
+
+.landing-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border-default);
+  margin: var(--space-8) 0;
+}
+
+/* ==========================================================================
+   Badge/Tag
+   ========================================================================== */
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-selected);
+  color: var(--color-brand-primary);
+}
+
+/* ==========================================================================
+   Focus Visible (for non-button elements)
+   ========================================================================== */
+
+.landing-focus:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+  border-radius: var(--radius-field);
+}
