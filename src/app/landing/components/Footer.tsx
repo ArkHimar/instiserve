@@ -6,9 +6,18 @@ import "./Footer.css";
  */
 export function Footer() {
   const footerLinks = {
-    QuickLinks: ["About", "Expertise", "Approach", "Impact", "FAQ"],
-    Services: ["Psychology & Well-being", "Agricultural Consultancy", "Training & Workshops", "Community Development"],
-    AreaOfExpertise: ["Psychology & Well-being", "Agricultural Consultancy", "Training & Workshops", "Community Development"],
+    Explore: [
+      { label: "Platform features", href: "#core-features-heading" },
+      { label: "Product tour", href: "#project-tours-heading" },
+      { label: "Pricing", href: "#pricing-heading" },
+      { label: "Frequently asked questions", href: "#faq-heading" },
+    ],
+    Platform: [
+      { label: "Admissions & enrolment", href: "#core-features-heading" },
+      { label: "Academics & results", href: "#core-features-heading" },
+      { label: "Billing & payments", href: "#core-features-heading" },
+      { label: "Communication & operations", href: "#core-features-heading" },
+    ],
   };
 
   return (
@@ -24,54 +33,47 @@ export function Footer() {
               height="48"
             />
             <p className="footer__mission">
-              Supporting individuals, organisations, and communities through meaningful insight, collaboration, and positive change.
+              One secure platform for admissions, academics, finance, and school operations—helping your team work smarter and support every learner.
             </p>
           </div>
 
           <nav className="footer__nav" aria-label="Footer navigation">
             <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Quick Links</h4>
+              <h4 className="footer__nav-title">Explore</h4>
               <ul>
-                {footerLinks.QuickLinks.map((link) => (
-                  <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
+                {footerLinks.Explore.map((link) => (
+                  <li key={link.label}><a href={link.href}>{link.label}</a></li>
                 ))}
               </ul>
             </div>
             <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Services</h4>
+              <h4 className="footer__nav-title">Platform</h4>
               <ul>
-                {footerLinks.Services.map((link) => (
-                  <li key={link}><a href="#">{link}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Area of Expertise</h4>
-              <ul>
-                {footerLinks.AreaOfExpertise.map((link) => (
-                  <li key={link}><a href="#">{link}</a></li>
+                {footerLinks.Platform.map((link) => (
+                  <li key={link.label}><a href={link.href}>{link.label}</a></li>
                 ))}
               </ul>
             </div>
           </nav>
 
           <div className="footer__contact">
-            <h4 className="footer__nav-title">Get In Touch</h4>
-            <address className="footer__address">
-              <p><strong>Location:</strong> Redemption City, Mowe, Ogun State, Nigeria</p>
-              <p><strong>Phone:</strong> <a href="tel:+23481234567879">+234 812 345 67879</a></p>
-            </address>
+            <h4 className="footer__nav-title">Ready to get started?</h4>
+            <div className="footer__address">
+              <p>Bring your institution&apos;s people, processes, and data together in one dependable workspace.</p>
+              <p><a href="https://instiserve.org">Explore InstiServe →</a></p>
+              <p><a href="https://instiserve.org/login">Sign in to your portal →</a></p>
+            </div>
           </div>
         </div>
 
         <div className="footer__copyright">
-          <p>© 2026 InstiServe All Rights Reserved</p>
+          <p>© 2026 InstiServe. All rights reserved.</p>
           <nav aria-label="Legal links">
-            <a href="#">Terms of Use</a>
+            <a href="https://instiserve.org/privacy">Privacy</a>
             <span aria-hidden="true">·</span>
-            <a href="#">Privacy Policy</a>
+            <a href="https://instiserve.org/help">Help centre</a>
             <span aria-hidden="true">·</span>
-            <a href="#">Cookie Policy</a>
+            <a href="https://instiserve.org/licences">Licences</a>
           </nav>
         </div>
       </div>
