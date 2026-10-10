@@ -2,15 +2,9 @@ import "./Footer.css";
 
 /**
  * Footer Component — InstiServe Landing Page
- * Separate reusable footer (also used in WhyInstiserve)
+ * Updated with recommended InstiServe footer content
  */
 export function Footer() {
-  const footerLinks = {
-    QuickLinks: ["About", "Expertise", "Approach", "Impact", "FAQ"],
-    Services: ["Psychology & Well-being", "Agricultural Consultancy", "Training & Workshops", "Community Development"],
-    AreaOfExpertise: ["Psychology & Well-being", "Agricultural Consultancy", "Training & Workshops", "Community Development"],
-  };
-
   return (
     <footer className="footer" role="contentinfo">
       <div className="landing-container">
@@ -24,55 +18,53 @@ export function Footer() {
               height="48"
             />
             <p className="footer__mission">
-              Supporting individuals, organisations, and communities through meaningful insight, collaboration, and positive change.
+              Empowering educational institutions with the technology, tools, and insights to manage education, support learners, and create opportunities for growth.
             </p>
           </div>
 
           <nav className="footer__nav" aria-label="Footer navigation">
             <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Quick Links</h4>
+              <h4 className="footer__nav-title">About InstiServe</h4>
               <ul>
-                {footerLinks.QuickLinks.map((link) => (
-                  <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
-                ))}
+                <li><a href="#about">About InstiServe</a></li>
+                <li><a href="#institutions">Explore Institutions</a></li>
+                <li><a href="#for-institutions">For Institutions</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
               </ul>
             </div>
             <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Services</h4>
+              <h4 className="footer__nav-title">Our Solutions</h4>
               <ul>
-                {footerLinks.Services.map((link) => (
-                  <li key={link}><a href="#">{link}</a></li>
-                ))}
+                <li><a href="#discovery">Institution Discovery</a></li>
+                <li><a href="#school-management">School Management</a></li>
+                <li><a href="#lms">Learning Management System (LMS)</a></li>
+                <li><a href="#eclass">E-Class & Virtual Learning</a></li>
+                <li><a href="#cbt">CBT & Online Assessments</a></li>
+                <li><a href="#records">Student & Academic Records</a></li>
               </ul>
             </div>
             <div className="footer__nav-column">
-              <h4 className="footer__nav-title">Area of Expertise</h4>
+              <h4 className="footer__nav-title">Explore InstiServe</h4>
               <ul>
-                {footerLinks.AreaOfExpertise.map((link) => (
-                  <li key={link}><a href="#">{link}</a></li>
-                ))}
+                <li><a href="#institutions">Find an Institution</a></li>
+                <li><a href="#manage">Manage Your Institution</a></li>
+                <li><a href="#teach">Teach & Learn Online</a></li>
+                <li><a href="#applications">Student Applications</a></li>
+                <li><a href="#demo">Book a Demo</a></li>
+                <li><a href="#contact">Get in Touch</a></li>
               </ul>
             </div>
           </nav>
+        </div>
 
-          <div className="footer__contact">
-            <h4 className="footer__nav-title">Get In Touch</h4>
-            <address className="footer__address">
-              <p><strong>Location:</strong> Redemption City, Mowe, Ogun State, Nigeria</p>
-              <p><strong>Phone:</strong> <a href="tel:+23481234567879">+234 812 345 67879</a></p>
-            </address>
-          </div>
+        <div className="footer__tagline">
+          <p>Discover Institutions. Manage Education. Create Opportunities.</p>
         </div>
 
         <div className="footer__copyright">
-          <p>© 2026 InstiServe All Rights Reserved</p>
-          <nav aria-label="Legal links">
-            <a href="#">Terms of Use</a>
-            <span aria-hidden="true">·</span>
-            <a href="#">Privacy Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="#">Cookie Policy</a>
-          </nav>
+          <p>© 2026 InstiServe. All rights reserved.</p>
         </div>
       </div>
     </footer>

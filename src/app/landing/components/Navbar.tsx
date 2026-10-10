@@ -41,10 +41,10 @@ export function Navbar() {
         </div>
 
         <div className="navbar__actions">
-          <Button variant="ghost" size="compact">
+          <Button variant="ghost" size="compact" onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}>
             Book a demo
           </Button>
-          <Button variant="primary" size="compact">
+          <Button variant="primary" size="compact" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>
             Get Started
           </Button>
         </div>
