@@ -1,0 +1,309 @@
+/**
+ * Sign In Screen Styles
+ * Consumes design tokens only
+ */
+
+.signin-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background-color: var(--color-surface-canvas);
+  font-family: var(--font-family);
+}
+
+.signin__container {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-panel);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-raised);
+}
+
+@media (max-width: 480px) {
+  .signin__container {
+    padding: var(--space-6);
+    border-radius: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   Brand
+   ========================================================================== */
+
+.signin__brand {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.signin__brand svg {
+  margin-bottom: var(--space-4);
+}
+
+.signin__title {
+  font-size: 28px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.signin__subtitle {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.signin__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.signin__field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signin__label {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.signin__forgot {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.signin__forgot:hover {
+  color: var(--color-brand-accent);
+  text-decoration: underline;
+}
+
+.signin__input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.signin__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.signin__input:focus {
+  border-color: var(--color-brand-supporting-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.signin__password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.signin__password-wrapper .signin__input {
+  padding-right: 48px;
+}
+
+.signin__toggle {
+  position: absolute;
+  right: var(--space-3);
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.signin__toggle:hover {
+  color: var(--color-brand-primary);
+}
+
+/* ==========================================================================
+   Remember Me
+   ========================================================================== */
+
+.signin__remember {
+  margin-top: calc(-1 * var(--space-3));
+}
+
+.signin__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: var(--text-helper);
+  color: var(--color-text-primary);
+}
+
+.signin__checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.signin__checkbox-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-canvas);
+  transition: all var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.signin__checkbox input:checked + .signin__checkbox-box {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-on-primary);
+}
+
+.signin__checkbox input:focus-visible + .signin__checkbox-box {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+  border-radius: var(--radius-field);
+}
+
+/* ==========================================================================
+   Submit Button
+   ========================================================================== */
+
+.signin__submit {
+  margin-top: var(--space-2);
+  height: 48px;
+  font-size: var(--text-control-label);
+}
+
+.signin__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Divider
+   ========================================================================== */
+
+.signin__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.signin__divider::before,
+.signin__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border-default);
+}
+
+.signin__divider span {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Social Buttons
+   ========================================================================== */
+
+.signin__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.signin__social-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-control-label);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-field);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.signin__social-btn:hover {
+  background-color: var(--color-surface-canvas);
+  border-color: var(--color-brand-supporting-blue);
+}
+
+.signin__social-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-brand-supporting-blue),
+    0 0 0 4px var(--color-focus-ring);
+}
+
+/* ==========================================================================
+   Signup Link
+   ========================================================================== */
+
+.signin__signup {
+  margin-top: var(--space-8);
+  text-align: center;
+  font-size: var(--text-helper);
+  color: var(--color-text-muted);
+}
+
+.signin__signup a {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.signin__signup a:hover {
+  color: var(--color-brand-accent);
+  text-decoration: underline;
+}
