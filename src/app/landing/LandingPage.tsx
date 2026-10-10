@@ -1,12 +1,4 @@
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { SocialProof } from "./components/SocialProof";
-import { CoreFeatures } from "./components/CoreFeatures";
-import { Testimonials } from "./components/Testimonials";
-import { Pricing } from "./components/Pricing";
-import { ProjectTours } from "./components/ProjectTours";
-import { FAQ } from "./components/FAQ";
-import { WhyInstiserve } from "./components/WhyInstiserve";
+import { HomepageDesign } from "./HomepageDesign";
 import "@instiserve/design-system/tokens.css";
 import "./LandingPage.css";
 
@@ -17,21 +9,7 @@ import "./LandingPage.css";
  * that needs Product Designer review before production.
  */
 export function LandingPage() {
-  return (
-    <div className="landing-page">
-      <Navbar />
-      <main>
-        <Hero />
-        <SocialProof />
-        <CoreFeatures />
-        <Testimonials />
-        <Pricing />
-        <ProjectTours />
-        <FAQ />
-        <WhyInstiserve />
-      </main>
-    </div>
-  );
+  return <HomepageDesign />;
 }
 
 export default LandingPage;

@@ -12,6 +12,10 @@
   overflow-x: hidden;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .landing-page main {
   width: 100%;
 }
