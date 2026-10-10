@@ -15,45 +15,6 @@ export function StudentRecords() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
 
-  const students = [
-    { id: "STU-2024-001", name: "Adebayo Kunle", email: "kunle.adebayo@student.ng", idNumber: "STU-2024-001", program: "Computer Science", level: "300 Level", status: "active", guardian: "Mr. Adebayo Senior", phone: "+234 801 234 5678" },
-    { id: "STU-2024-002", name: "Chioma Nwosu", email: "chioma.nwosu@student.ng", idNumber: "STU-2024-002", program: "Medicine", level: "400 Level", status: "active", guardian: "Mrs. Nwosu Grace", phone: "+234 802 345 6789" },
-    { id: "STU-2024-003", name: "Ibrahim Musa", email: "ibrahim.musa@student.ng", idNumber: "STU-2024-003", program: "Engineering", level: "200 Level", status: "active", guardian: "Alhaji Musa", phone: "+234 803 456 7890" },
-    { id: "STU-2024-004", name: "Fatima Abubakar", email: "fatima.abubakar@student.ng", idNumber: "STU-2024-004", program: "Law", level: "500 Level", status: "graduated", guardian: "Alhaji Abubakar", phone: "+234 804 567 8901" },
-    { id: "STU-2024-005", name: "Emeka Okafor", email: "emeka.okafor@student.ng", idNumber: "STU-2024-005", program: "Business Admin", level: "300 Level", status: "on_leave", guardian: "Mr. Okafor Peter", phone: "+234 805 678 9012" },
-    { id: "STU-2024-006", name: "Aisha Bello", email: "aisha.bello@student.ng", idNumber: "STU-2024-006", program: "Pharmacy", level: "400 Level", status: "active", guardian: "Mallam Bello", phone: "+234 806 789 0123" },
-    { id: "STU-2024-007", name: "David Okeke", email: "david.okeke@student.ng", idNumber: "STU-2024-007", program: "Computer Science", level: "200 Level", status: "suspended", guardian: "Mr. Okeke James", phone: "+234 807 890 1234" },
-    { id: "STU-2024-008", name: "Grace Eze", email: "grace.eze@student.ng", idNumber: "STU-2024-008", program: "Nursing", level: "300 Level", status: "active", guardian: "Mrs. Eze Mary", phone: "+234 808 901 2345" },
-    { id: "STU-2024-009", name: "Yusuf Garba", email: "yusuf.garba@student.ng", idNumber: "STU-2024-009", program: "Agriculture", level: "400 Level", status: "active", guardian: "Alhaji Garba", phone: "+234 809 012 3456" },
-    { id: "STU-2024-010", name: "Blessing Ade", email: "blessing.ade@student.ng", idNumber: "STU-2024-010", program: "Education", level: "200 Level", status: "active", guardian: "Pastor Ade", phone: "+234 810 123 4567" },
-    { id: "STU-2024-011", name: "Samuel Okon", email: "samuel.okon@student.ng", idNumber: "STU-2024-011", program: "Mass Comm", level: "100 Level", status: "active", guardian: "Mr. Okon", phone: "+234 811 234 5678" },
-    { id: "STU-2024-012", name: "Precious Udeh", email: "precious.udeh@student.ng", idNumber: "STU-2024-012", program: "Biochemistry", level: "300 Level", status: "active", guardian: "Dr. Udeh", phone: "+234 812 345 6789" },
-    { id: "STU-2024-013", name: "Musa Yusuf", email: "musa.yusuf@student.ng", idNumber: "STU-2024-013", program: "Physics", level: "200 Level", status: "on_leave", guardian: "Alhaji Yusuf", phone: "+234 813 456 7890" },
-    { id: "STU-2024-014", name: "Ruth Daniel", email: "ruth.daniel@student.ng", idNumber: "STU-2024-014", program: "Microbiology", level: "300 Level", status: "active", guardian: "Mrs. Daniel", phone: "+234 814 567 8901" },
-    { id: "STU-2024-015", name: "Chinedu Okoro", email: "chinedu.okoro@student.ng", idNumber: "STU-2024-015", program: "Architecture", level: "400 Level", status: "active", guardian: "Engr. Okoro", phone: "+234 815 678 9012" },
-    { id: "STU-2024-016", name: "Halima Sani", email: "halima.sani@student.ng", idNumber: "STU-2024-016", program: "Public Health", level: "200 Level", status: "active", guardian: "Dr. Sani", phone: "+234 816 789 0123" },
-    { id: "STU-2024-017", name: "Victor Nwankwo", email: "victor.nwankwo@student.ng", idNumber: "STU-2024-017", program: "Economics", level: "300 Level", status: "active", guardian: "Mr. Nwankwo", phone: "+234 817 890 1234" },
-    { id: "STU-2024-018", name: "Amina Aliyu", email: "amina.aliyu@student.ng", idNumber: "STU-2024-018", program: "Vet Medicine", level: "500 Level", status: "graduated", guardian: "Alhaji Aliyu", phone: "+234 818 901 2345" },
-  ];
-
-  const statusOptions = [
-    { value: "all", label: "All Status" },
-    { value: "active", label: "Active" },
-    { value: "on_leave", label: "On Leave" },
-    { value: "suspended", label: "Suspended" },
-    { value: "graduated", label: "Graduated" },
-  ];
-
-  const getStatusTone = (status: string) => {
-    switch (status) {
-      case "active": return "success";
-      case "on_leave": return "warning";
-      case "suspended": return "error";
-      case "graduated": return "info";
-      default: return "neutral";
-    }
-  };
-
   const filteredStudents = students.filter((student) => {
     const matchesSearch = student.name.toLowerCase().includes(search.toLowerCase()) ||
       student.email.toLowerCase().includes(search.toLowerCase()) ||
@@ -61,7 +22,7 @@ export function StudentRecords() {
       student.program.toLowerCase().includes(search.toLowerCase());
     const matchesStatus = statusFilter === "all" || student.status === statusFilter;
     return matchesSearch && matchesStatus;
-  })
+  });
 
   const toggleSelect = (id: string) => {
     setSelectedIds(prev => prev.includes(id) ? prev.filter(id => id !== id) : [...prev, id]);
@@ -300,51 +261,58 @@ export function StudentRecords() {
                           </div>
                         </td>
                       </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
-            <Pagination
-              currentPage={page}
-              totalPages={3}
-              onPageChange={setPage}
-              siblingCount={1}
-              showFirstLast
-              showPrevNext
-            />
-          </section>
+              <Pagination
+                currentPage={page}
+                totalPages={3}
+                onPageChange={setPage}
+                siblingCount={1}
+                showFirstLast
+                showPrevNext
+              />
+            </section>
 
-          {expandedId && (
-            <section className="sr-expansion" aria-labelledby={`expansion-${expandedId}`}>
-              <div className="sr-expansion-content">
-                <h3>Student Details</h3>
-                <p>Detailed view for {students.find(s => s.id === expandedId)?.name}</p>
-                <div className="expansion-grid">
-                  <div className="expansion-field">
-                    <label>Email</label>
-                    <span>{students.find(s => s.id === expandedId)?.email}</span>
-                  </div>
-                  <div className="expansion-field">
-                    <label>Phone</label>
-                    <span>{students.find(s => s.id === expandedId)?.phone}</span>
-                  </div>
-                  <div className="expansion-field">
-                    <label>Guardian</label>
-                    <span>{students.find(s => s.id === expandedId)?.guardian}</span>
-                  </div>
-                  <div className="expansion-field">
-                    <label>Guardian Phone</label>
-                    <span>{students.find(s => s.id === expandedId)?.phone}</span>
+            {expandedId && (
+              <section className="sr-expansion" aria-labelledby={`expansion-${expandedId}`}>
+                <div className="sr-expansion-content">
+                  <h3>Student Details</h3>
+                  <p>Detailed view for {students.find(s => s.id === expandedId)?.name}</p>
+                  <div className="expansion-grid">
+                    <div className="expansion-field">
+                      <label>Email</label>
+                      <span>{students.find(s => s.id === expandedId)?.email}</span>
+                    </div>
+                    <div className="expansion-field">
+                      <label>Phone</label>
+                      <span>{students.find(s => s.id === expandedId)?.phone}</span>
+                    </div>
+                    <div className="expansion-field">
+                      <label>Guardian</label>
+                      <span>{students.find(s => s.id === expandedId)?.guardian}</span>
+                    </div>
+                    <div className="expansion-field">
+                      <label>Guardian Phone</label>
+                      <span>{students.find(s => s.id === expandedId)?.phone}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
-          )}
-        </main>
+              </section>
+            )}
+          </main>
+        </div>
       </div>
     </div>
   );
 }
+
+const attendanceOptions = [
+  { value: "Daily", label: "Daily" },
+  { value: "Per lecture", label: "Per lecture" },
+  { value: "Per session", label: "Per session" },
+];
+
 export default StudentRecords;

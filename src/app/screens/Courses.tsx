@@ -143,10 +143,10 @@ export function Courses() {
                 <article key={index} className="stats__card">
                   <div className="stats__icon" aria-hidden="true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {index === 0 && <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />}
-                      {index === 1 && <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />}
-                      {index === 2 && <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />}
-                      {index === 3 && <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><path d="M17 6h.01" /><path d="M7 18h.01" />}
+                      {index === 0 && (<><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></>)}
+                      {index === 1 && (<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></>)}
+                      {index === 2 && (<><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /></>)}
+                      {index === 3 && (<><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><path d="M17 6h.01" /><path d="M7 18h.01" /></>)}
                     </svg>
                   </div>
                   <div className="stats__content">
