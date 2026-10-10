@@ -7,7 +7,6 @@ import { Pricing } from "./components/Pricing";
 import { ProjectTours } from "./components/ProjectTours";
 import { FAQ } from "./components/FAQ";
 import { WhyInstiserve } from "./components/WhyInstiserve";
-import { Footer } from "./components/Footer";
 import "@instiserve/design-system/tokens.css";
 import "./LandingPage.css";
 
@@ -31,7 +30,6 @@ export function LandingPage() {
         <FAQ />
         <WhyInstiserve />
       </main>
-      <Footer />
     </div>
   );
 }
