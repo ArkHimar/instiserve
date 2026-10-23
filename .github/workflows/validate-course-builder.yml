@@ -1,0 +1,33 @@
+name: Validate Course Builder
+
+on:
+  pull_request:
+    branches:
+      - docs/design-system-audit
+  push:
+    branches:
+      - feat/course-resource-activity-builder
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Type-check
+        run: npm run typecheck
+      - name: Build production bundle
+        run: npm run build
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Run resource and activity browser tests
+        run: npm run test:e2e
