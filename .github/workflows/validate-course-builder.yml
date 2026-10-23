@@ -27,3 +27,7 @@ jobs:
         run: npm run typecheck
       - name: Build production bundle
         run: npm run build
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Run resource and activity browser tests
+        run: npm run test:e2e
