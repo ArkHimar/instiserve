@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/builder");
   await page.evaluate(() => localStorage.clear());
   await page.reload();
 });
@@ -67,4 +67,24 @@ test("saved items persist after a reload", async ({ page }) => {
   await page.getByRole("button", { name: /Save draft/i }).last().click();
   await page.reload();
   await expect(page.getByText("Persistence check resource")).toBeVisible();
+});
+
+test("Figma portal pages navigate between dashboard, courses, results, and settings", async ({ page }) => {
+  await page.goto("/dashboard");
+  await expect(page.getByRole("heading", { name: "Dashboard overview" })).toBeVisible();
+  await page.getByRole("button", { name: /^Courses$/ }).click();
+  await expect(page.getByRole("heading", { name: "My Courses" })).toBeVisible();
+  await page.getByRole("button", { name: /^Result$/ }).click();
+  await expect(page.getByRole("heading", { name: "Results & transcripts" })).toBeVisible();
+  await page.getByRole("button", { name: /^Settings$/ }).click();
+  await expect(page.getByRole("heading", { name: "Institution settings" })).toBeVisible();
+});
+
+test("marketing homepage links into sign-in and admission flows", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: /Make education work better/i })).toBeVisible();
+  await page.getByRole("button", { name: /Log in/i }).click();
+  await expect(page.getByRole("heading", { name: "Sign in to InstiServe" })).toBeVisible();
+  await page.getByRole("button", { name: /Start an application/i }).click();
+  await expect(page.getByRole("heading", { name: "Personal information" })).toBeVisible();
 });
