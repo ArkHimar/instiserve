@@ -23,7 +23,7 @@ const initialRecords: RecordItem[] = [
 const loadRecords = (): RecordItem[] => {
   try { const value = localStorage.getItem("instiserve-builder-records"); return value ? JSON.parse(value) as RecordItem[] : initialRecords; } catch { return initialRecords; }
 };
-function App() {
+export function BuilderApp() {
   const [mode, setMode] = useState<Mode>("resource");
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(emptyForm);
@@ -101,4 +101,3 @@ function App() {
     {notice && <div className="toast" role="status"><CheckCircle2 size={18}/>{notice}<button onClick={() => setNotice("")} aria-label="Dismiss"><X size={15}/></button></div>}
   </div>;
 }
-createRoot(document.getElementById("root")!).render(<React.StrictMode><App/></React.StrictMode>);
